@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- side bar -->
+        <aside class="sidebar card">
+            <div class="perfil">
+                <img src="avatar.png" alt="this is a dashboard picture">
+                <div>
+                    <h2>Dashboard</h2>
+                </div>
+            </div>
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </aside>
+        
+        <!-- atajos  -->
+        <section class="shortcuts card">
+
+            <h2>⌨ Atajos</h2>
+
+            <ul>
+                <li>Alt + G → GitHub</li>
+                <li>Alt + C → ChatGPT</li>
+                <li>Alt + P → Potrero</li>
+                <li>Alt + N → Notas</li>
+            </ul>
+
+        </section>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="side-btn">
+                <button id="btn">
+                    ☰
+                </button>
+            </div>
+            <div class="buscador">
+                <input
+                    type="text"
+                    placeholder="Buscar en Google o escribir un comando..."
+                >
+            </div>
+
+            <div class="environment">
+                <div class="env-tab">
+                    <div class="reloj">
+                        <p style="font-size: 22px;padding: 0;margin: 0;">🕓 22:53</p>
+                        <p style="font-size: smaller;padding: 0;margin: 0;">sábado 15 de junio</p>
+                    </div>
+                    <div class="clima">
+                        <p style="font-size: 22px;padding: 0;margin: 0;">🌤 18°C</p>
+                        <p style="font-size: smaller;">Buenos Aires</p>
+                    </div>
+                </div>
+                
+                <div class="env-btns">
+                    <div class="btn-reloj">
+                        <button id="btn-reloj" class="btn-env">🕓</button>
+                    </div>
+                    <div class="btn-clima">
+                        <button id="btn-clima" class="btn-env">🌤</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Terminal -->
+        <section class="terminal card">
+
+            <div class="terminal-header">
+                TERMINAL / NOTAS
+            </div>
+
+            <textarea placeholder="Escribe tus notas..."></textarea>
+
+        </section>
+        
+        <!-- Contraseñas -->
+        <section class="passwords card">
+            <h2>🔒 Contraseñas</h2>
+
+            <div class="password-item">
+                <span>Potrero Digital</span>
+
+                <div>
+                    <button>👁</button>
+                    <button>📋</button>
+                </div>
+            </div>
+
+            <div class="password-item">
+                <span>GitHub</span>
+
+                <div>
+                    <button>👁</button>
+                    <button>📋</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- statistics  -->
+        <section class="statistics card ">
+
+            <h2>📊 Estadísticas</h2>
+
+            
+
+        </section>
+
+        <!-- Accesos rápidos -->
+        <section class="quick-links card">
+
+            <h2>⚡ Accesos rápidos</h2>
+
+            <div class="links-grid">
+
+                <a href="#">ChatGPT</a>
+                <a href="#">GitHub</a>
+                <a href="#">Potrero</a>
+                <a href="#">YouTube</a>
+                <a href="#">Drive</a>
+                <a href="#">Notion</a>
+                <a href="#">Porn hub</a>
+
+            </div>
+
+        </section>
+
+        <!-- Categorías -->
+        <section class="categories card">
+
+            <div class="category">
+                <h3>💻 Desarrollo</h3>
+            </div>
+
+            <div class="category">
+                <h3>🎨 Diseño</h3>
+            </div>
+
+            <div class="category">
+                <h3>📚 Estudio</h3>
+            </div>
+
+            <div class="category">
+                <h3>🤖 IA</h3>
+            </div>
+
+            <div class="category">
+                <h3>🛠 Herramientas</h3>
+            </div>
+
+        </section>
+
+    </div>
+    <SCRIpt src="sidebars.js"></SCRIpt>
+</body>
+</html>
