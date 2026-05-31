@@ -1,0 +1,395 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    font-family:"Lato", sans-serif;
+    background:#0f172a;
+    color:white;
+    min-height:100%;
+}
+
+body{
+    min-height:100vh;
+    width:100%;
+    overflow:hidden;
+}
+
+.dashboard{
+    height:100vh;
+    display:grid;
+    gap:10px;
+    padding:20px;
+    grid-template-columns:
+        200px
+        1fr
+        150px
+        200px
+        220px;
+    grid-template-rows:
+        40px
+        10px
+        1fr
+        60px
+        100px;
+    grid-template-areas:
+        "sidebar header header environment statistics"
+        "sidebar terminal acceso-rapido environment statistics"
+        "sidebar terminal acceso-rapido contraceñas statistics"
+        "atajos terminal acceso-rapido contraceñas statistics"
+        "atajos herramientas herramientas herramientas statistics";
+    transition:grid-template-columns .5s ease;
+}
+
+.dashboard.oculta-sidebar{
+    grid-template-columns:
+        0
+        1fr
+        1.2fr
+        200px
+        220px;
+}
+
+.card,
+.box{
+    background:#1e293bcc;
+    border-radius:20px;
+    padding:12px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+    overflow:hidden;
+}
+
+.sidebar{ grid-area:sidebar; }
+.header{ grid-area:header; }
+.environment{ grid-area:environment; }
+.statistics{ grid-area:statistics; }
+.terminal{ grid-area:terminal; }
+.quick-links{ grid-area:acceso-rapido; }
+.passwords{ grid-area:contraceñas; }
+.shortcuts{ grid-area:atajos; }
+.categories{ grid-area:herramientas; }
+
+.sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    padding:25px;
+    transition:all .5s ease;
+    opacity:1;
+    visibility:visible;
+}
+
+.sidebar.oculta{
+    opacity:0;
+    visibility:hidden;
+    padding:0 25px;
+}
+
+.sidebar h2{ font-size:18px; }
+
+.sidebar ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar a{
+    color:inherit;
+    text-decoration:none;
+    display:block;
+    padding:10px 12px;
+    border-radius:10px;
+    background:#334155;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    justify-content:space-between;
+    min-width:0;
+}
+
+.side-btn button{
+    border:none;
+    cursor:pointer;
+    background:#334155;
+    color:white;
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    font-size:18px;
+}
+
+.buscador{
+    flex:1;
+    min-width:0;
+}
+
+.buscador input{
+    width:100%;
+    padding:14px 16px;
+    border:none;
+    border-radius:12px;
+    background:#334155cc;
+    color:white;
+    outline:none;
+}
+
+.environment{
+    background:#1e293bcc;
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    min-width:180px;
+}
+
+.env-tab{
+    flex:1;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:50px;
+}
+
+.reloj,
+.clima{
+    opacity:0;
+    transform:translateX(15px);
+    transition:opacity .25s, transform .25s;
+    position:absolute;
+}
+
+.reloj.activa,
+.clima.activa{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.env-btns{
+    display:flex;
+    gap:10px;
+    margin-left:10px;
+}
+
+.btn-env{
+    border:none;
+    background:none;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.btn-clima,
+.btn-reloj{ display:none; }
+
+.btn-clima.activa,
+.btn-reloj.activa{ display:block; }
+
+.terminal{
+    display:flex;
+    flex-direction:column;
+    padding:15px 10px;
+}
+
+.terminal-header{
+    margin-bottom:15px;
+    color:#22c55e;
+    font-weight:bold;
+    letter-spacing:.08em;
+}
+
+.terminal textarea{
+    flex:1;
+    min-height:350px;
+    resize:none;
+    background:#020617e5;
+    color:#22c55e;
+    border:none;
+    border-radius:12px;
+    padding:20px;
+    font-family:monospace;
+    outline:none;
+}
+
+.statistics{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.shortcuts{
+    transition:all .5s ease;
+    opacity:1;
+    visibility:visible;
+}
+
+.shortcuts.oculta{
+    opacity:0;
+    visibility:hidden;
+}
+
+.shortcuts h2,
+.passwords h2,
+.quick-links h2,
+.categories h2,
+.statistics h2{
+    margin-bottom:15px;
+}
+
+.shortcuts ul{
+    list-style:none;
+}
+
+.shortcuts li{
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:10px;
+    background:#334155;
+}
+
+.links-grid{
+    display:grid;
+    gap:15px;
+    grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.links-grid a{
+    text-decoration:none;
+    color:white;
+    background:#334155;
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+    transition:.3s;
+}
+
+.links-grid a:hover{
+    transform:translateY(-5px);
+    background:#475569;
+}
+
+.password-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    background:#334155;
+    border-radius:12px;
+    margin-bottom:10px;
+    gap:10px;
+}
+
+.password-item button{
+    border:none;
+    background:none;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.categories{
+    display:grid;
+    gap:15px;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.category{
+    background:#334155;
+    padding:20px;
+    border-radius:15px;
+}
+
+.category h3{ margin-bottom:10px; }
+
+body.light{
+    background:#f1f5f9;
+    color:#0f172a;
+}
+
+body.light .card,
+body.light .box,
+body.light .clima,
+body.light .reloj{
+    background:white;
+}
+
+body.light .links-grid a,
+body.light .password-item,
+body.light .shortcuts li,
+body.light .category,
+body.light .sidebar a{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+body.light .buscador input{
+    background:#e2e8f0;
+    color:#0f172a;
+}
+
+body.light .terminal textarea{
+    background:#f8fafc;
+    color:#166534;
+}
+
+@media (max-width: 1280px){
+    body{ overflow:auto; }
+
+    .dashboard{
+        height:auto;
+        min-height:100vh;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:auto;
+        grid-template-areas:
+            "header header"
+            "environment environment"
+            "sidebar sidebar"
+            "terminal terminal"
+            "acceso-rapido acceso-rapido"
+            "contraceñas statistics"
+            "atajos herramientas";
+    }
+
+    .dashboard.oculta-sidebar{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .environment{ min-width:0; }
+}
+
+@media (max-width: 768px){
+    .header{ flex-wrap:wrap; }
+
+    .buscador{
+        order:3;
+        flex-basis:100%;
+    }
+
+    .dashboard{
+        padding:12px;
+        gap:12px;
+        grid-template-columns:1fr;
+        grid-template-areas:
+            "header"
+            "environment"
+            "sidebar"
+            "terminal"
+            "acceso-rapido"
+            "contraceñas"
+            "statistics"
+            "atajos"
+            "herramientas";
+    }
+
+    .categories{ grid-template-columns:1fr; }
+}
